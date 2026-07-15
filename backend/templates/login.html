@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VERO ERP — Acesso e Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/login.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </head>
+<body>
+
+  <header class="brand-header">
+    <div class="brand">
+      <div class="brand-icon">
+        <i class="fa-solid fa-bolt"></i>
+      </div>
+      VERO
+    </div>
+  </header>
+
+  <div class="auth-wrapper">
+    
+    <!-- Login Card -->
+    <div class="auth-card">
+      <div class="form-header">
+        <h1 class="form-title">Acesse sua <span>conta</span></h1>
+        <p class="form-subtitle">Bem-vindo de volta ao seu centro de gestão.</p>
+      </div>
+
+      <form id="login-form">
+        <div class="input-group">
+          <label class="input-label" for="login-email">E-mail</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="login-email" name="email" class="input-field" placeholder="exemplo@empresa.com" required />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="login-pass">Senha</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="login-pass" name="senha" class="input-field" placeholder="••••••••" required />
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" /> Lembrar de mim
+          </label>
+          <a href="#" class="forgot-pass">Esqueceu a senha?</a>
+        </div>
+
+        <button type="submit" class="btn-auth">Entrar no Sistema</button>
+
+        <div class="divider">ou entre com</div>
+
+        <div class="social-btn">
+          <i class="fa-brands fa-google"></i> Continuar com Google
+        </div>
+      </form>
+    </div>
+
+    <!-- Signup Card -->
+    <div class="auth-card featured">
+      <span class="card-badge">Novo por aqui?</span>
+      <div class="form-header">
+        <h1 class="form-title">Crie sua <span>conta</span></h1>
+        <p class="form-subtitle">Comece a transformar sua gestão hoje mesmo.</p>
+      </div>
+
+      <form id="register-form">
+        <div class="input-group">
+          <label class="input-label" for="signup-name">Nome Completo</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="signup-name" name="nome" class="input-field" placeholder="Seu nome" required />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="signup-email">E-mail Corporativo</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="signup-email" name="email" class="input-field" placeholder="exemplo@empresa.com" required />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" for="signup-pass">Criar Senha</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="signup-pass" name="senha" class="input-field" placeholder="Mínimo 8 caracteres" required />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth outline">Cadastrar Empresa</button>
+
+        <div class="divider">ou cadastre-se com</div>
+
+        <div class="social-btn">
+          <i class="fa-brands fa-google"></i> Cadastrar com Google
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <footer class="footer-note">
+    &copy; 2025 VERO ERP. Tecnologia, Segurança e Controle Total.
+  </footer>
+
+
+  <script src="{{ url_for('static', path='js/login.js') }}"></script>
+</body>
+</html>

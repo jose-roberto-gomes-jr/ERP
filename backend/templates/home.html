@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VERO ERP — O sistema de gestão inteligente para empresas que querem crescer. Gestão financeira, estoque, vendas, CRM e automação em uma única plataforma." />
+  <title>VERO ERP — O ERP inteligente para empresas que querem crescer</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════ -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          VERO
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#recursos">Recursos</a></li>
+          <li><a href="#solucoes">Soluções</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="/auth/login" class="btn btn-outline">Entrar</a>
+          <a href="/auth/login" class="btn btn-primary">Cadastrar</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left: Copy -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Novo — Versão 3.0 disponível
+          </div>
+
+          <h1 class="hero-title">
+            O ERP inteligente<br />
+            para empresas que<br />
+            <span class="line-orange">querem crescer.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Unifique finanças, estoque, vendas e CRM em uma única plataforma. Tome decisões com dados em tempo real e automatize processos que travam o seu crescimento.
+          </p>
+
+          <div class="hero-actions">
+            <a href="login.html" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-rocket"></i>
+              Começar agora
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="hero-trust-item">
+              <i class="fa-solid fa-check"></i>
+              Configuração rápida
+            </div>
+            <div class="hero-trust-item">
+              <i class="fa-solid fa-headset"></i>
+              Suporte especializado
+            </div>
+            <div class="hero-trust-item">
+              <i class="fa-solid fa-lock"></i>
+              Segurança de dados
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Dashboard Mockup -->
+        <div class="hero-visual">
+          <div class="dashboard-mockup">
+            <div class="mockup-topbar">
+              <div class="mockup-dots">
+                <span class="mockup-dot" style="background:#FF5F57"></span>
+                <span class="mockup-dot" style="background:#FEBC2E"></span>
+                <span class="mockup-dot" style="background:#28C840"></span>
+              </div>
+              <span class="mockup-title-bar" style="font-size:.6rem;color:var(--gray-500);">VERO ERP — Dashboard</span>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-sidebar">
+                <div class="mockup-sidebar-item active"><i class="fa-solid fa-chart-pie"></i></div>
+                <div class="mockup-sidebar-item"><i class="fa-solid fa-boxes-stacked"></i></div>
+                <div class="mockup-sidebar-item"><i class="fa-solid fa-users"></i></div>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-kpi-row">
+                  <div class="mockup-kpi">
+                    <div class="mockup-kpi-label">Receita</div>
+                    <div class="mockup-kpi-value">R$248k</div>
+                  </div>
+                  <div class="mockup-kpi">
+                    <div class="mockup-kpi-label">Pedidos</div>
+                    <div class="mockup-kpi-value">1.847</div>
+                  </div>
+                </div>
+                <div class="mockup-charts-row">
+                  <div class="mockup-chart-card">
+                    <div class="bar-chart">
+                      <div class="bar" style="height:40%"></div>
+                      <div class="bar alt" style="height:70%"></div>
+                      <div class="bar" style="height:50%"></div>
+                      <div class="bar alt" style="height:90%"></div>
+                    </div>
+                  </div>
+                  <div class="mockup-chart-card">
+                    <div class="donut" style="width:50px;height:50px;border-width:6px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BENEFITS
+  ═══════════════════════════════════════════ -->
+  <section class="benefits-section" id="solucoes">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag">
+          <i class="fa-solid fa-star"></i>
+          Benefícios
+        </span>
+        <h2 class="section-title">
+          Tudo que sua empresa precisa<br />
+          em <span class="highlight">uma única plataforma</span>
+        </h2>
+        <p class="section-subtitle">
+          Do controle financeiro ao relacionamento com clientes, o VERO centraliza todas as operações do seu negócio com inteligência e simplicidade.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3 class="benefit-title">Gestão Financeira</h3>
+          <p class="benefit-desc">Controle completo de entradas e saídas, fluxo de caixa e relatórios financeiros em tempo real.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <h3 class="benefit-title">Controle de Estoque</h3>
+          <p class="benefit-desc">Gerencie seus produtos, entradas e saídas com total rastreabilidade e alertas inteligentes.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+          <h3 class="benefit-title">Vendas</h3>
+          <p class="benefit-desc">Acompanhe seu funil de vendas, emita orçamentos e gerencie pedidos de forma rápida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DASHBOARD PREVIEW (EXPANDIDO)
+  ═══════════════════════════════════════════ -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="container">
+      <div class="dashboard-section-header text-center">
+        <span class="section-tag">
+          <i class="fa-solid fa-display"></i>
+          Interface Expandida
+        </span>
+        <h2 class="section-title">
+          Uma interface que sua equipe<br />
+          vai <span class="highlight">adorar usar</span>
+        </h2>
+        <p class="section-subtitle">
+          Design pensado para produtividade máxima. Navegação intuitiva, informações no lugar certo e zero curva de aprendizado.
+        </p>
+      </div>
+
+      <div class="full-dashboard">
+        <!-- Top Bar -->
+        <div class="full-dash-topbar">
+          <div class="full-dash-logo">
+            <div class="full-dash-logo-icon"><i class="fa-solid fa-bolt" style="color:#fff;font-size:.55rem;"></i></div>
+            VERO ERP
+          </div>
+          <div class="full-dash-nav">
+            <div class="full-dash-nav-item active">Dashboard</div>
+            <div class="full-dash-nav-item">Financeiro</div>
+            <div class="full-dash-nav-item">Estoque</div>
+            <div class="full-dash-nav-item">Vendas</div>
+            <div class="full-dash-nav-item">CRM</div>
+            <div class="full-dash-nav-item">Configurações</div>
+          </div>
+          <div class="full-dash-user">
+            <div class="full-dash-avatar">JC</div>
+            <span class="full-dash-username">João Carlos</span>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="full-dash-body">
+          <!-- Sidebar -->
+          <div class="full-dash-sidebar">
+            <div class="full-dash-sidebar-section">
+              <div class="full-dash-sidebar-label">Principal</div>
+              <div class="full-dash-sidebar-item active"><i class="fa-solid fa-chart-pie"></i> Dashboard</div>
+              <div class="full-dash-sidebar-item"><i class="fa-solid fa-file-invoice-dollar"></i> Financeiro</div>
+              <div class="full-dash-sidebar-item"><i class="fa-solid fa-boxes-stacked"></i> Estoque</div>
+              <div class="full-dash-sidebar-item"><i class="fa-solid fa-cart-shopping"></i> Vendas</div>
+            </div>
+            <div class="full-dash-sidebar-section">
+              <div class="full-dash-sidebar-label">Gestão</div>
+              <div class="full-dash-sidebar-item"><i class="fa-solid fa-users"></i> CRM</div>
+              <div class="full-dash-sidebar-item"><i class="fa-solid fa-chart-bar"></i> Relatórios</div>
+              <div class="full-dash-sidebar-item"><i class="fa-solid fa-robot"></i> Automação</div>
+            </div>
+            <div class="full-dash-sidebar-section">
+              <div class="full-dash-sidebar-label">Sistema</div>
+              <div class="full-dash-sidebar-item"><i class="fa-solid fa-gears"></i> Ajustes</div>
+              <div class="full-dash-sidebar-item"><i class="fa-solid fa-circle-question"></i> Ajuda</div>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="full-dash-main">
+            <div class="full-dash-header">
+              <div>
+                <div class="full-dash-page-title">Painel de Controle — Julho 2025</div>
+                <div class="full-dash-page-sub">Última atualização: Hoje às 14:30</div>
+              </div>
+              <div style="display:flex;gap:.5rem;">
+                <div style="padding:.4rem .8rem;background:rgba(255,255,255,.05);border-radius:6px;font-size:.6rem;color:var(--gray-400);cursor:pointer;">Exportar PDF</div>
+                <div style="padding:.4rem .8rem;background:var(--orange-500);border-radius:6px;font-size:.6rem;color:white;cursor:pointer;">Novo Relatório</div>
+              </div>
+            </div>
+
+            <!-- KPI Row -->
+            <div class="full-dash-kpi-row">
+              <div class="full-dash-kpi">
+                <div class="full-dash-kpi-header">
+                  <span class="full-dash-kpi-label">Faturamento</span>
+                  <div class="full-dash-kpi-icon orange"><i class="fa-solid fa-dollar-sign"></i></div>
+                </div>
+                <div class="full-dash-kpi-value">R$ 1,24M</div>
+                <div class="full-dash-kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +18.4%</div>
+              </div>
+              <div class="full-dash-kpi">
+                <div class="full-dash-kpi-header">
+                  <span class="full-dash-kpi-label">Vendas</span>
+                  <div class="full-dash-kpi-icon blue"><i class="fa-solid fa-cart-shopping"></i></div>
+                </div>
+                <div class="full-dash-kpi-value">4.872</div>
+                <div class="full-dash-kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +9.2%</div>
+              </div>
+              <div class="full-dash-kpi">
+                <div class="full-dash-kpi-header">
+                  <span class="full-dash-kpi-label">Novos Leads</span>
+                  <div class="full-dash-kpi-icon green"><i class="fa-solid fa-user-plus"></i></div>
+                </div>
+                <div class="full-dash-kpi-value">+247</div>
+                <div class="full-dash-kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +22.1%</div>
+              </div>
+              <div class="full-dash-kpi">
+                <div class="full-dash-kpi-header">
+                  <span class="full-dash-kpi-label">Lucro Líquido</span>
+                  <div class="full-dash-kpi-icon purple"><i class="fa-solid fa-wallet"></i></div>
+                </div>
+                <div class="full-dash-kpi-value">R$ 382k</div>
+                <div class="full-dash-kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +12.5%</div>
+              </div>
+            </div>
+
+            <!-- Charts & Tasks Row -->
+            <div class="full-dash-charts-row">
+              <div class="full-dash-chart-card">
+                <div class="full-dash-chart-header">
+                  <span class="full-dash-chart-title">Desempenho Semanal</span>
+                  <span style="font-size:.6rem;color:#22C55E">Meta batida</span>
+                </div>
+                <div class="line-chart-wrap">
+                  <div class="line-chart-grid">
+                    <div class="line-chart-grid-line"></div>
+                    <div class="line-chart-grid-line"></div>
+                    <div class="line-chart-grid-line"></div>
+                  </div>
+                  <div class="line-chart-bars">
+                    <div class="line-bar" style="height:45%"></div>
+                    <div class="line-bar secondary" style="height:50%"></div>
+                    <div class="line-bar" style="height:65%"></div>
+                    <div class="line-bar secondary" style="height:60%"></div>
+                    <div class="line-bar" style="height:85%"></div>
+                    <div class="line-bar secondary" style="height:80%"></div>
+                    <div class="line-bar" style="height:95%"></div>
+                    <div class="line-bar secondary" style="height:90%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="full-dash-chart-card">
+                <div class="full-dash-chart-header">
+                  <span class="full-dash-chart-title">Próximas Tarefas</span>
+                </div>
+                <div class="task-list">
+                  <div class="task-item">
+                    <div class="task-info"><div class="task-check done"><i class="fa-solid fa-check"></i></div> Conciliação Bancária</div>
+                    <span class="task-tag">Hoje</span>
+                  </div>
+                  <div class="task-item">
+                    <div class="task-info"><div class="task-check"></div> Inventário de Estoque</div>
+                    <span class="task-tag">Amanhã</span>
+                  </div>
+                  <div class="task-item">
+                    <div class="task-info"><div class="task-check"></div> Fechamento de Folha</div>
+                    <span class="task-tag">25/07</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Row: Table & Distribution -->
+            <div class="full-dash-bottom-row">
+              <div class="full-dash-table-card">
+                <table class="full-dash-table">
+                  <thead>
+                    <tr>
+                      <th>Cliente</th>
+                      <th>Valor</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Tech Solutions</td>
+                      <td style="color:var(--orange-400);font-weight:700;">R$ 18.500</td>
+                      <td><span class="status-badge green">Pago</span></td>
+                    </tr>
+                    <tr>
+                      <td>Grupo Alfa</td>
+                      <td style="color:var(--orange-400);font-weight:700;">R$ 9.200</td>
+                      <td><span class="status-badge green">Pago</span></td>
+                    </tr>
+                    <tr>
+                      <td>Inova Corp</td>
+                      <td style="color:var(--orange-400);font-weight:700;">R$ 7.800</td>
+                      <td><span class="status-badge yellow">Pendente</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="full-dash-chart-card">
+                <div class="pie-chart-wrap">
+                  <div class="pie-chart"></div>
+                  <div class="pie-legend">
+                    <div class="pie-legend-item"><span class="pie-dot" style="background:var(--orange-500)"></span> Varejo 40%</div>
+                    <div class="pie-legend-item"><span class="pie-dot" style="background:var(--blue-300)"></span> B2B 30%</div>
+                    <div class="pie-legend-item"><span class="pie-dot" style="background:#22C55E"></span> E-comm 15%</div>
+                    <div class="pie-legend-item"><span class="pie-dot" style="background:#A855F7"></span> Outros 15%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FEATURES (GENERIC)
+  ═══════════════════════════════════════════ -->
+  <section class="features-section" id="recursos">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag">
+          <i class="fa-solid fa-layer-group"></i>
+          Funcionalidades
+        </span>
+        <h2 class="section-title">Recursos pensados para escalar</h2>
+        <p class="section-subtitle">Cada funcionalidade do VERO foi projetada para eliminar gargalos e aumentar a eficiência.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-number">01</div>
+          <h3 class="feature-title">Gestão Centralizada</h3>
+          <p class="feature-desc">Controle todos os departamentos em um único lugar.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">02</div>
+          <h3 class="feature-title">Segurança de Dados</h3>
+          <p class="feature-desc">Criptografia e backups periódicos garantidos.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-number">03</div>
+          <h3 class="feature-title">Multi-filiais</h3>
+          <p class="feature-desc">Gerencie diferentes unidades com permissões personalizadas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA
+  ═══════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="cta-title">Pronto para transformar a sua gestão?</h2>
+        <p class="cta-subtitle">Junte-se às empresas que já escolheram o VERO para crescer.</p>
+        <div class="cta-actions">
+          <a href="login.html" class="btn btn-primary btn-lg">Começar agora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="nav-logo" style="margin-bottom:1.5rem">VERO</div>
+          <p style="color:var(--gray-500);font-size:.9rem;">O ERP inteligente para empresas que querem crescer com eficiência.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Produto</div>
+          <ul class="footer-links">
+            <li><a href="#">Recursos</a></li>
+            <li><a href="#">Soluções</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Empresa</div>
+          <ul class="footer-links">
+            <li><a href="#">Sobre nós</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="#">Privacidade</a></li>
+            <li><a href="#">Termos</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);color:var(--gray-600);font-size:.8rem;">
+        &copy; 2025 VERO ERP. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
