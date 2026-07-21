@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VERO ERP — Painel principal. Acesse Financeiro, Estoque, Vendas, CRM, Relatórios e todas as funcionalidades do seu ERP em um só lugar." />
+  <title>Painel — VERO ERP</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='css/dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<div class="background-blur blur-1"></div>
+<div class="background-blur blur-2"></div>
+<div class="background-blur blur-3"></div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="app-shell">
+
+  <!-- ═══════════════════════════════════════════
+       SIDEBAR
+  ═══════════════════════════════════════════ -->
+  <aside class="app-sidebar" id="appSidebar">
+
+    <a href="#painel" class="sidebar-logo" data-view="painel">
+      <div class="sidebar-logo-icon">
+        <i class="fa-solid fa-bolt"></i>
+      </div>
+      <div class="sidebar-logo-text">
+        <span class="sidebar-logo-title">VERO</span>
+        <span class="sidebar-logo-sub">Enterprise Suite</span>
+      </div>
+    </a>
+
+    <nav class="sidebar-nav">
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Principal</div>
+
+        <a href="#painel" class="sidebar-item active" data-view="painel">
+          <i class="fa-solid fa-chart-pie"></i> Dashboard
+        </a>
+        <a href="#financeiro" class="sidebar-item" data-view="financeiro">
+          <i class="fa-solid fa-file-invoice-dollar"></i> Financeiro
+        </a>
+        <a href="#estoque" class="sidebar-item" data-view="estoque">
+          <i class="fa-solid fa-boxes-stacked"></i> Estoque
+        </a>
+        <a href="#vendas" class="sidebar-item" data-view="vendas">
+          <i class="fa-solid fa-cart-shopping"></i> Vendas
+        </a>
+        <a href="#compras" class="sidebar-item" data-view="compras">
+          <i class="fa-solid fa-truck-fast"></i> Compras
+        </a>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Gestão</div>
+
+        <a href="#crm" class="sidebar-item" data-view="crm">
+          <i class="fa-solid fa-users"></i> CRM
+        </a>
+        <a href="#rh" class="sidebar-item" data-view="rh">
+          <i class="fa-solid fa-user-tie"></i> Recursos Humanos
+        </a>
+        <a href="#fiscal" class="sidebar-item" data-view="fiscal">
+          <i class="fa-solid fa-file-contract"></i> Fiscal
+        </a>
+        <a href="#relatorios" class="sidebar-item" data-view="relatorios">
+          <i class="fa-solid fa-chart-line"></i> Relatórios
+        </a>
+        <a href="#automacao" class="sidebar-item" data-view="automacao">
+          <i class="fa-solid fa-robot"></i> Automação
+          <span class="sidebar-item-badge">Novo</span>
+        </a>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Sistema</div>
+
+        <a href="#ajustes" class="sidebar-item" data-view="ajustes">
+          <i class="fa-solid fa-gears"></i> Ajustes
+        </a>
+        <a href="#ajuda" class="sidebar-item" data-view="ajuda">
+          <i class="fa-solid fa-circle-question"></i> Ajuda &amp; Suporte
+        </a>
+      </div>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">JC</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">João Carlos</div>
+          <div class="sidebar-user-role">Administrador</div>
+        </div>
+        <a href="/auth/logout" class="sidebar-logout" title="Sair">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN
+  ═══════════════════════════════════════════ -->
+  <div class="app-main">
+
+    <!-- TOPBAR -->
+    <header class="app-topbar">
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="topbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Buscar clientes, pedidos, produtos..." />
+        <span class="topbar-kbd">Ctrl K</span>
+      </div>
+
+      <div class="topbar-spacer"></div>
+
+      <div class="topbar-actions">
+
+        <a href="#vendas" class="topbar-new-btn" data-view="vendas">
+          <i class="fa-solid fa-plus"></i>
+          <span>Nova ação</span>
+        </a>
+
+        <div class="topbar-divider"></div>
+
+        <button class="topbar-btn" title="Notificações">
+          <i class="fa-solid fa-bell"></i>
+          <span class="dot"></span>
+        </button>
+
+        <a href="#perfil" class="topbar-user" data-view="perfil">
+          <div class="topbar-avatar">JC</div>
+          <span class="topbar-user-name">João Carlos</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+
+      </div>
+
+    </header>
+
+    <!-- CONTENT -->
+    <main class="app-content">
+
+    <!-- ═══════ VIEW: PAINEL (DASHBOARD) ═══════ -->
+    <div class="view-page active" data-view="painel">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Bem-vindo de volta 👋 · Terça-feira, 21 de julho</div>
+          <h1 class="page-title">Painel de Controle</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#relatorios" class="ghost-btn" data-view="relatorios">
+            <i class="fa-solid fa-file-export"></i>
+            Exportar relatório
+          </a>
+          <a href="#vendas" class="solid-btn" data-view="vendas">
+            <i class="fa-solid fa-plus"></i>
+            Nova venda
+          </a>
+        </div>
+      </div>
+
+      <!-- KPI ROW -->
+      <section class="kpi-row">
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Faturamento do mês</span>
+            <div class="kpi-icon purple"><i class="fa-solid fa-dollar-sign"></i></div>
+          </div>
+          <div class="kpi-value">R$ 428.750</div>
+          <div class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +12,4% <span>vs. mês anterior</span></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Pedidos hoje</span>
+            <div class="kpi-icon blue"><i class="fa-solid fa-cart-shopping"></i></div>
+          </div>
+          <div class="kpi-value">87</div>
+          <div class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +5,2% <span>vs. ontem</span></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Clientes ativos</span>
+            <div class="kpi-icon green"><i class="fa-solid fa-users"></i></div>
+          </div>
+          <div class="kpi-value">1.204</div>
+          <div class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +3,8% <span>este mês</span></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-head">
+            <span class="kpi-label">Tarefas pendentes</span>
+            <div class="kpi-icon amber"><i class="fa-solid fa-list-check"></i></div>
+          </div>
+          <div class="kpi-value">14</div>
+          <div class="kpi-trend neutral"><i class="fa-solid fa-clock"></i> 3 vencem hoje</div>
+        </div>
+
+      </section>
+
+      <!-- MODULES -->
+      <section id="modulos">
+
+        <div class="section-heading">
+          <div>
+            <h2>Módulos do sistema</h2>
+            <p>Acesse todas as áreas da sua empresa em um único lugar.</p>
+          </div>
+        </div>
+
+        <div class="modules-grid">
+
+          <a href="#financeiro" class="module-card" data-view="financeiro">
+            <div class="module-card-top">
+              <div class="module-icon green"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            </div>
+            <h3 class="module-title">Financeiro</h3>
+            <p class="module-desc">Fluxo de caixa, contas a pagar, contas a receber e indicadores.</p>
+            <div class="module-footer">
+              <span><strong>12</strong> pendências</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#estoque" class="module-card" data-view="estoque">
+            <div class="module-card-top">
+              <div class="module-icon blue"><i class="fa-solid fa-boxes-stacked"></i></div>
+            </div>
+            <h3 class="module-title">Estoque</h3>
+            <p class="module-desc">Inventário, movimentações, rastreabilidade e controle de produtos.</p>
+            <div class="module-footer">
+              <span><strong>8</strong> itens em falta</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#vendas" class="module-card" data-view="vendas">
+            <div class="module-card-top">
+              <div class="module-icon purple"><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+            <h3 class="module-title">Vendas</h3>
+            <p class="module-desc">Pedidos, propostas, orçamentos e acompanhamento comercial.</p>
+            <div class="module-footer">
+              <span><strong>87</strong> pedidos hoje</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#crm" class="module-card" data-view="crm">
+            <div class="module-card-top">
+              <div class="module-icon pink"><i class="fa-solid fa-users"></i></div>
+            </div>
+            <h3 class="module-title">CRM</h3>
+            <p class="module-desc">Cadastro de clientes, negociações e relacionamento.</p>
+            <div class="module-footer">
+              <span><strong>247</strong> novos leads</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#compras" class="module-card" data-view="compras">
+            <div class="module-card-top">
+              <div class="module-icon amber"><i class="fa-solid fa-truck-fast"></i></div>
+            </div>
+            <h3 class="module-title">Compras</h3>
+            <p class="module-desc">Solicitações, cotações e controle de fornecedores.</p>
+            <div class="module-footer">
+              <span><strong>5</strong> cotações abertas</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#relatorios" class="module-card" data-view="relatorios">
+            <div class="module-card-top">
+              <div class="module-icon purple"><i class="fa-solid fa-chart-line"></i></div>
+            </div>
+            <h3 class="module-title">Relatórios</h3>
+            <p class="module-desc">Indicadores, dashboards e análises para decisões estratégicas.</p>
+            <div class="module-footer">
+              <span>Atualizado hoje</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#fiscal" class="module-card" data-view="fiscal">
+            <div class="module-card-top">
+              <div class="module-icon red"><i class="fa-solid fa-file-contract"></i></div>
+            </div>
+            <h3 class="module-title">Fiscal</h3>
+            <p class="module-desc">Notas fiscais, impostos e obrigações tributárias.</p>
+            <div class="module-footer">
+              <span><strong>2</strong> guias a vencer</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#rh" class="module-card" data-view="rh">
+            <div class="module-card-top">
+              <div class="module-icon teal"><i class="fa-solid fa-user-tie"></i></div>
+            </div>
+            <h3 class="module-title">Recursos Humanos</h3>
+            <p class="module-desc">Colaboradores, folha de pagamento e ponto eletrônico.</p>
+            <div class="module-footer">
+              <span><strong>32</strong> colaboradores</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#automacao" class="module-card" data-view="automacao">
+            <div class="module-card-top">
+              <div class="module-icon purple"><i class="fa-solid fa-robot"></i></div>
+              <span class="module-tag">Novo</span>
+            </div>
+            <h3 class="module-title">Automação</h3>
+            <p class="module-desc">Fluxos automáticos, integrações e regras de negócio.</p>
+            <div class="module-footer">
+              <span><strong>6</strong> fluxos ativos</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#projetos" class="module-card" data-view="projetos">
+            <div class="module-card-top">
+              <div class="module-icon blue"><i class="fa-solid fa-diagram-project"></i></div>
+            </div>
+            <h3 class="module-title">Projetos</h3>
+            <p class="module-desc">Planejamento, tarefas e acompanhamento de equipes.</p>
+            <div class="module-footer">
+              <span><strong>9</strong> em andamento</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#ajustes" class="module-card" data-view="ajustes">
+            <div class="module-card-top">
+              <div class="module-icon slate"><i class="fa-solid fa-gears"></i></div>
+            </div>
+            <h3 class="module-title">Ajustes</h3>
+            <p class="module-desc">Preferências, permissões, usuários e integrações.</p>
+            <div class="module-footer">
+              <span>Configurar</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="#ajuda" class="module-card" data-view="ajuda">
+            <div class="module-card-top">
+              <div class="module-icon slate"><i class="fa-solid fa-circle-question"></i></div>
+            </div>
+            <h3 class="module-title">Ajuda &amp; Suporte</h3>
+            <p class="module-desc">Central de ajuda, tutoriais e atendimento especializado.</p>
+            <div class="module-footer">
+              <span>Falar com suporte</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- BOTTOM ROW: activity + quick actions -->
+      <section class="bottom-row">
+
+        <div class="panel-card">
+          <div class="panel-title">
+            Atividade recente
+            <a href="#relatorios" class="section-link" data-view="relatorios">Ver tudo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="activity-list">
+
+            <div class="activity-item">
+              <div class="activity-icon" style="background:linear-gradient(135deg,#5B21B6,#8B5CF6)"><i class="fa-solid fa-cart-shopping"></i></div>
+              <div class="activity-text">
+                <p><strong>Novo pedido #4821</strong> registrado por Ana Souza</p>
+                <span>Vendas</span>
+              </div>
+              <div class="activity-time">há 5 min</div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon" style="background:linear-gradient(135deg,#16A34A,#4ADE80)"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+              <div class="activity-text">
+                <p>Fatura #1290 paga por <strong>Tech Solutions</strong></p>
+                <span>Financeiro</span>
+              </div>
+              <div class="activity-time">há 22 min</div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon" style="background:linear-gradient(135deg,#1D4ED8,#3B82F6)"><i class="fa-solid fa-boxes-stacked"></i></div>
+              <div class="activity-text">
+                <p>Estoque baixo: <strong>Cabo HDMI 2m</strong> (8 un.)</p>
+                <span>Estoque</span>
+              </div>
+              <div class="activity-time">há 1h</div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon" style="background:linear-gradient(135deg,#BE185D,#F472B6)"><i class="fa-solid fa-user-plus"></i></div>
+              <div class="activity-text">
+                <p>Novo lead: <strong>Grupo Alfa</strong></p>
+                <span>CRM</span>
+              </div>
+              <div class="activity-time">há 2h</div>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-icon" style="background:linear-gradient(135deg,#334155,#64748B)"><i class="fa-solid fa-database"></i></div>
+              <div class="activity-text">
+                <p>Backup automático <strong>concluído</strong></p>
+                <span>Sistema</span>
+              </div>
+              <div class="activity-time">há 3h</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-title">Ações rápidas</div>
+
+          <div class="quick-actions-grid">
+
+            <a href="#vendas" class="quick-action" data-view="vendas">
+              <i class="fa-solid fa-cart-plus"></i>
+              <span>Nova venda</span>
+            </a>
+
+            <a href="#crm" class="quick-action" data-view="crm">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Novo cliente</span>
+            </a>
+
+            <a href="#financeiro" class="quick-action" data-view="financeiro">
+              <i class="fa-solid fa-money-bill-transfer"></i>
+              <span>Lançar despesa</span>
+            </a>
+
+            <a href="#relatorios" class="quick-action" data-view="relatorios">
+              <i class="fa-solid fa-file-export"></i>
+              <span>Gerar relatório</span>
+            </a>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+    <!-- ═══════ FIM VIEW: PAINEL ═══════ -->
+
+    <!-- ═══════ VIEWS DOS DEMAIS MÓDULOS ═══════ -->
+    <!-- Cada módulo abre aqui dentro, sem sair da página.
+         Troque o conteúdo de cada bloco pelo conteúdo real do módulo
+         quando estiver pronto — a navegação (menu, cards e botões)
+         já está toda conectada a estes blocos via atributo data-view. -->
+
+    <div class="view-page" data-view="financeiro">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Financeiro</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon green" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-file-invoice-dollar"></i></div>Financeiro
+        </div>
+        <p class="view-placeholder-text">Fluxo de caixa, contas a pagar, contas a receber e indicadores. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="estoque">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Estoque</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon blue" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-boxes-stacked"></i></div>Estoque
+        </div>
+        <p class="view-placeholder-text">Inventário, movimentações, rastreabilidade e controle de produtos. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="vendas">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Vendas</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon purple" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-cart-shopping"></i></div>Vendas
+        </div>
+        <p class="view-placeholder-text">Pedidos, propostas, orçamentos e acompanhamento comercial. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="compras">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Compras</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon amber" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-truck-fast"></i></div>Compras
+        </div>
+        <p class="view-placeholder-text">Solicitações, cotações e controle de fornecedores. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="crm">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">CRM</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon pink" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-users"></i></div>CRM
+        </div>
+        <p class="view-placeholder-text">Cadastro de clientes, negociações e relacionamento. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="rh">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Recursos Humanos</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon teal" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-user-tie"></i></div>Recursos Humanos
+        </div>
+        <p class="view-placeholder-text">Colaboradores, folha de pagamento e ponto eletrônico. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="fiscal">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Fiscal</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon red" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-file-contract"></i></div>Fiscal
+        </div>
+        <p class="view-placeholder-text">Notas fiscais, impostos e obrigações tributárias. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="relatorios">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Relatórios</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon purple" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-chart-line"></i></div>Relatórios
+        </div>
+        <p class="view-placeholder-text">Indicadores, dashboards e análises para decisões estratégicas. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="automacao">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Automação</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon purple" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-robot"></i></div>Automação
+        </div>
+        <p class="view-placeholder-text">Fluxos automáticos, integrações e regras de negócio. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="projetos">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Projetos</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon blue" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-diagram-project"></i></div>Projetos
+        </div>
+        <p class="view-placeholder-text">Planejamento, tarefas e acompanhamento de equipes. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="ajustes">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Ajustes</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon slate" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-gears"></i></div>Ajustes
+        </div>
+        <p class="view-placeholder-text">Preferências, permissões, usuários e integrações. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="ajuda">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Ajuda &amp; Suporte</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon slate" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-circle-question"></i></div>Ajuda &amp; Suporte
+        </div>
+        <p class="view-placeholder-text">Central de ajuda, tutoriais e atendimento especializado. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    <div class="view-page" data-view="perfil">
+
+      <div class="page-header">
+        <div>
+          <div class="page-greeting">Módulo</div>
+          <h1 class="page-title">Meu Perfil</h1>
+        </div>
+        <div class="page-header-actions">
+          <a href="#painel" class="ghost-btn" data-view="painel">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar ao painel
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-card view-placeholder">
+        <div class="panel-title">
+          <div class="module-icon slate" style="width:38px;height:38px;font-size:.95rem;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-right:12px;vertical-align:middle;"><i class="fa-solid fa-user"></i></div>Meu Perfil
+        </div>
+        <p class="view-placeholder-text">Informações da conta, segurança e preferências pessoais. Substitua este bloco pelo conteúdo real do módulo &mdash; a navegação já abre esta área dentro do próprio painel, sem recarregar a página.</p>
+      </div>
+
+    </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+  // Menu mobile (abrir/fechar sidebar)
+  const sidebar = document.getElementById('appSidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  const menuBtn = document.getElementById('mobileMenuBtn');
+
+  function toggleSidebar(open){
+    sidebar.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+  }
+
+  menuBtn?.addEventListener('click', () => toggleSidebar(true));
+  overlay?.addEventListener('click', () => toggleSidebar(false));
+
+  // ═══════════════════════════════════════════
+  // NAVEGAÇÃO INTERNA ENTRE MÓDULOS (SPA)
+  // Troca o conteúdo dentro do próprio painel,
+  // sem recarregar ou sair da página.
+  // ═══════════════════════════════════════════
+  const appContent = document.querySelector('.app-content');
+  const viewPages = document.querySelectorAll('.view-page');
+  const defaultView = 'painel';
+
+  function activateView(viewName){
+    const target = document.querySelector(`.view-page[data-view="${viewName}"]`);
+
+    // Se a view não existir, cai no painel (evita tela em branco)
+    const finalView = target ? viewName : defaultView;
+
+    viewPages.forEach(page => {
+      page.classList.toggle('active', page.dataset.view === finalView);
+    });
+
+    // Atualiza o item ativo no menu lateral
+    document.querySelectorAll('.sidebar-item[data-view]').forEach(item => {
+      item.classList.toggle('active', item.dataset.view === finalView);
+    });
+
+    // Volta o conteúdo pro topo ao trocar de módulo
+    appContent?.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Fecha o menu no mobile após navegar
+    toggleSidebar(false);
+  }
+
+  // Qualquer elemento com data-view (menu, cards, botões) navega internamente
+  document.querySelectorAll('[data-view]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const view = el.dataset.view;
+      if (window.location.hash === `#${view}`) {
+        activateView(view); // já está no hash certo, só garante a troca
+      } else {
+        window.location.hash = view; // dispara 'hashchange' abaixo
+      }
+    });
+  });
+
+  // Permite usar voltar/avançar do navegador entre os módulos
+  window.addEventListener('hashchange', () => {
+    activateView(window.location.hash.replace('#', '') || defaultView);
+  });
+
+  // Abre a view correta ao carregar a página (ex.: link direto pra #financeiro)
+  activateView(window.location.hash.replace('#', '') || defaultView);
+</script>
+
+</body>
+</html>

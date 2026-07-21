@@ -4,12 +4,26 @@ registerForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
+       const nome = document.querySelector("#signup-name");
+       const email = document.querySelector("#signup-email");
+       const senha = document.querySelector("#signup-pass");
+    
     const usuario = {
-        nome: document.querySelector("#signup-name").value,
-        email: document.querySelector("#signup-email").value,
-        senha: document.querySelector("#signup-pass").value
-    }
+        nome: nome.value,
+        email: email.value,
+        senha: senha.value
+    };
 
-    console.log(usuario)
+    const resposta = await fetch ("/auth/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
 
+        body: JSON.stringify(usuario)
+
+
+
+    })
 })
+

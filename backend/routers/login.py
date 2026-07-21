@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
+from schemas.usuario import UsuarioCreate
 
 router = APIRouter(prefix="/auth", tags=["Autenticação"])
 
@@ -12,3 +13,12 @@ async def login_page(request: Request):
         request=request,
         name="login.html"
     )
+
+@router.post("/cadastrar")
+async def cadastrar(usuario: UsuarioCreate): 
+
+    print(usuario)
+
+    return {
+        "Mensagem": "Dados recebidos"
+    }
