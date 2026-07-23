@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.templating import Jinja2Templates
-from schemas.login import LoginCreate
-from database import SessionLocal
-from models.usuario import Usuario
+from backend.schemas.login import LoginCreate
+from backend.database import SessionLocal
+from backend.models.usuario import Usuario
 from pwdlib import PasswordHash
 
 router = APIRouter(prefix="/auth", tags=["Autenticação de login"])

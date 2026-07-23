@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
-from schemas.cadastro import CadastroCreate
-from database import SessionLocal
-from models.usuario import Usuario
+from backend.schemas.cadastro import CadastroCreate
+from backend.database import SessionLocal
+from backend.models.usuario import Usuario
 from pwdlib import PasswordHash
 
 router = APIRouter(prefix="/auth", tags=["Autenticação de cadastro"])
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="backend/templates")
 
 
 @router.get("/login")
