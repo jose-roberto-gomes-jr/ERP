@@ -1,20 +1,18 @@
-const registerForm = document.querySelector("#register-form");
+const loginForm = document.querySelector("#login-form");
 
-registerForm.addEventListener("submit", async (event) => {
+loginForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
-       const nome = document.querySelector("#signup-name");
-       const email = document.querySelector("#signup-email");
-       const senha = document.querySelector("#signup-pass");
-    
+    const email = document.querySelector("#login-email");
+    const senha = document.querySelector("#login-pass");
+
     const usuario = {
-        nome: nome.value,
-        email: email.value,
-        senha: senha.value
+        email : email.value,
+        senha : senha.value
     };
 
-    const resposta = await fetch ("/auth/cadastrar", {
+    const resposta = await fetch ("/auth/login", {
         method: "POST",
         headers: {
             "Content-type": "application/json"
@@ -22,8 +20,5 @@ registerForm.addEventListener("submit", async (event) => {
 
         body: JSON.stringify(usuario)
 
-
-
     })
 })
-
