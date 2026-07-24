@@ -18,7 +18,7 @@ async def login_page(request: Request):
     )
 
 @router.post("/cadastrar")
-async def cadastrar(usuario: UsuarioCreate):
+async def cadastrar(usuario: CadastroCreate):
 
     password_hash = PasswordHash.recommended()
     senha_hash = password_hash.hash(usuario.senha)
