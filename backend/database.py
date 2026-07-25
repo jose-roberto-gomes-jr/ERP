@@ -1,8 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+import os
 
-DATABASE_URL = ("postgresql://postgres:junin1227@localhost/vero_erp")
-
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql://postgres:junin1227@localhost/vero_erp")
 engine = create_engine(
     DATABASE_URL
 )
