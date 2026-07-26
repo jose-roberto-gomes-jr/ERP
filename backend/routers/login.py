@@ -23,7 +23,7 @@ async def login_page(request: Request):
 
 
 @router.post("/login")
-async def login(usuario: LoginCreate):
+async def login(usuario: LoginCreate, response: Response):
 
 
     db = SessionLocal()
@@ -41,7 +41,7 @@ async def login(usuario: LoginCreate):
 
     token = criar_token(usuario_db.id)
 
-    Response.set_cookie(
+    response.set_cookie(
         key="access_token",
         value=token,
         httponly=True,
