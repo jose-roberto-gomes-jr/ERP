@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, HTTPException
 from fastapi.templating import Jinja2Templates
 from backend.schemas.cadastro import CadastroCreate
 from backend.database import SessionLocal
 from backend.models.usuario import Usuario
 from pwdlib import PasswordHash
+from sqlalchemy.exc import IntegrityError
 
 router = APIRouter(prefix="/auth", tags=["Autenticação de cadastro"])
 
@@ -24,18 +25,24 @@ async def cadastrar(usuario: CadastroCreate):
     senha_hash = password_hash.hash(usuario.senha)
     
     db = SessionLocal()
+    try:
+        novo_usuario = Usuario(
+            nome=usuario.nome,
+            email=usuario.email,
+            senha = senha_hash
+        )
 
-    novo_usuario = Usuario(
-        nome=usuario.nome,
-        email=usuario.email,
-        senha = senha_hash
-     )
+        db.add(novo_usuario)
+        db.commit()
+        db.refresh(novo_usuario)
 
-    db.add(novo_usuario)
-    db.commit()
-    db.refresh(novo_usuario)
+        db.close()
 
-    db.close()
-
-    return {"mensagem": "Usuario cadastrado",
-             "id": novo_usuario.id}
+        return {"mensagem": "Usuario cadastrado",
+                "id": novo_usuario.id}
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(status_code=400, detail="Email já cadastrado")
+    finally:
+        db.close()
+        
