@@ -2,6 +2,8 @@ import os
 from datetime import datetime, timedelta, timezone
 import jwt
 from dotenv import load_dotenv
+from fastapi import Request, HTTPException, status
+from fastapi.responses import RedirectResponse
 
 load_dotenv()
 
@@ -29,3 +31,20 @@ def verificar_token (token: str) -> int:
         return None
     except jwt.InvalidTokenError:
         return None
+
+def usuario_atual(request: Request) -> int:
+    token = request.cookies.get("access_token")
+
+    if not token:
+        raise HTTPException(
+            status_code=status.HTTP_303_SEE_OTHER,
+            headers={"Location": "/auth/login"}
+            )
+    usuario_id = verificar_token(token)
+
+    if usuario_id is None:
+        raise HTTPException(
+            status_code=status.HTTP_303_SEE_OTHER,
+            headers={"Location": "/auth/login"}
+        )
+    return usuario_id
